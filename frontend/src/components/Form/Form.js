@@ -29,27 +29,33 @@ function Form({ onRecommendationsChange }) {
 
   return (
     <form
-      className="max-w-md mx-auto p-4 bg-white rounded-lg shadow-md"
+      className="w-full p-4 bg-white rounded-lg shadow-md"
       onSubmit={handleSubmit}
     >
-      <Preferences
-        preferences={preferences}
-        onPreferenceChange={(selected) =>
-          handleChange('selectedPreferences', selected)
-        }
-      />
-      <Features
-        features={features}
-        onFeatureChange={(selected) =>
-          handleChange('selectedFeatures', selected)
-        }
-      />
-      <RecommendationType
-        onRecommendationTypeChange={(selected) =>
-          handleChange('selectedRecommendationType', selected)
-        }
-      />
-      <SubmitButton text="Obter recomendação" />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <Preferences
+          preferences={preferences}
+          onPreferenceChange={(selected) =>
+            handleChange('selectedPreferences', selected)
+          }
+        />
+        <Features
+          features={features}
+          onFeatureChange={(selected) =>
+            handleChange('selectedFeatures', selected)
+          }
+        />
+      </div>
+      <div className="mb-4">
+        <RecommendationType
+          onRecommendationTypeChange={(selected) =>
+            handleChange('selectedRecommendationType', selected)
+          }
+        />
+      </div>
+      <div>
+        <SubmitButton text="Obter recomendação" />
+      </div>
     </form>
   );
 }
